@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="demoqa.tests.WebTablesTest">
+      <class name="demoqa.tests.LinksTest">
         <methods>
+          <include name="testAPILinks"/>
           <include name="setUp"/>
-          <include name="testWebTable"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- demoqa.tests.WebTablesTest -->
+      </class> <!-- demoqa.tests.LinksTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -13,17 +13,8 @@ import org.openqa.selenium.support.PageFactory;
 import demoqa.commonutils.CommonUtils;
 
 public class CheckBoxPage extends BasePage {
-	//private final WebDriver driver;
-	private CommonUtils commonUtils;
 
-	//	public static String loadProperties() throws IOException {
-	//		Properties properties = new Properties();
-	//		FileInputStream file = new FileInputStream("src/main/resources/config.properties");
-	//		properties.load(file);
-	//		String browser = properties.getProperty("browser");
-	//		return browser;
-	//
-	//	}
+	private CommonUtils commonUtils;
 
 	public CheckBoxPage(WebDriver driver) {
 
@@ -32,15 +23,6 @@ public class CheckBoxPage extends BasePage {
 		PageFactory.initElements(driver, this);
 
 	}
-
-	//	public void closeBrowser() {
-	//		try {
-	//			driver.quit();
-	//		} catch (Exception e) {
-	//			e.printStackTrace();
-	//		}
-	//
-	//	}
 
 	@FindBy(how = How.XPATH, using = "//div[@class='element-list collapse show']//li[@id='item-1']")
 	private WebElement checkBoxBtn;
@@ -81,8 +63,8 @@ public class CheckBoxPage extends BasePage {
 					name);
 			WebElement clickCheckBox = driver.findElement(By.xpath(xpath));
 			clickCheckBox.click();
-			Thread.sleep(4000); // Adjust the sleep time as necessary
-			commonUtils.scrollDown(driver);
+			Thread.sleep(4000);
+			commonUtils.scrollDown(driver, 300);
 		}
 	}
 
@@ -90,7 +72,7 @@ public class CheckBoxPage extends BasePage {
 
 		commonUtils.waitForElement(driver, checkBoxBtn, 2);
 		checkBoxBtn.click();
-		commonUtils.scrollDown(driver);
+		commonUtils.scrollDown(driver, 300);
 		Thread.sleep(2000);
 		commonUtils.waitForElement(driver, homeBtn, 2);
 		homeBtn.click();
@@ -101,22 +83,22 @@ public class CheckBoxPage extends BasePage {
 		commonUtils.waitForElement(driver, documentsBtn, 2);
 		documentsBtn.click();
 		Thread.sleep(1000);
-		commonUtils.scrollDown(driver);
+		commonUtils.scrollDown(driver, 300);
 		commonUtils.waitForElement(driver, workspaceBtn, 2);
 		workspaceBtn.click();
 		Thread.sleep(1000);
-		commonUtils.scrollDown(driver);
+		commonUtils.scrollDown(driver, 300);
 		commonUtils.waitForElement(driver, officeBtn, 2);
 		officeBtn.click();
 		Thread.sleep(1000);
 		commonUtils.waitForElement(driver, downloadsBtn, 2);
 		downloadsBtn.click();
 		Thread.sleep(1000);
-		commonUtils.scrollUp(driver);
+		commonUtils.scrollUp(driver, -300);
 		Thread.sleep(1000);
 		addCheckboxName();
 		selectCheckboxes();
-		commonUtils.scrollDown(driver);
+		commonUtils.scrollDown(driver, 300);
 		System.out.println(message.getText());
 	}
 }

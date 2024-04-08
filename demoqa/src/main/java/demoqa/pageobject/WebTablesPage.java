@@ -9,13 +9,13 @@ import org.openqa.selenium.support.PageFactory;
 
 import demoqa.commonutils.CommonUtils;
 
-public class WebTablesPage {
-	private final WebDriver driver;
+public class WebTablesPage extends BasePage {
+
 	private CommonUtils commonUtils;
 
 	public WebTablesPage(WebDriver driver) {
 
-		this.driver = driver;
+		super(driver);
 
 		PageFactory.initElements(driver, this);
 
@@ -51,17 +51,20 @@ public class WebTablesPage {
 	@FindBy(how = How.XPATH, using = "//button[@id='submit' and @class='btn btn-primary']")
 	private WebElement submitBtn;
 
+	@FindBy(how = How.XPATH, using = "//div[@class='rt-td']")
+	private WebElement searchText;
+
 	public void addDetails() throws InterruptedException {
-		commonUtils.scrollDown(driver);
+		commonUtils.scrollDown(driver, 300);
 		commonUtils.waitForElement(driver, webTableBtn, 2);
 		webTableBtn.click();
 
 		commonUtils.waitForElement(driver, addBtn, 2);
 		addBtn.click();
 		commonUtils.waitForElement(driver, firstName, 2);
-		firstName.sendKeys("kesh");
+		firstName.sendKeys("prove");
 		commonUtils.waitForElement(driver, lastName, 2);
-		lastName.sendKeys("anj");
+		lastName.sendKeys("aksh");
 		commonUtils.waitForElement(driver, userEmail, 2);
 		userEmail.sendKeys("123@email.com");
 		commonUtils.waitForElement(driver, ageInput, 2);
@@ -70,16 +73,22 @@ public class WebTablesPage {
 		commonUtils.waitForElement(driver, salary, 2);
 		salary.sendKeys("30000");
 		commonUtils.waitForElement(driver, department, 2);
-		department.sendKeys("health");
+		department.sendKeys("railways");
 		Thread.sleep(2000);
-		commonUtils.scrollDown(driver);
+		commonUtils.scrollDown(driver, 300);
 		commonUtils.waitForElementToBeClickable(driver, submitBtn, 2);
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", submitBtn);
 		Thread.sleep(2000);
 		commonUtils.waitForElement(driver, searchBtn, 2);
 		searchBtn.click();
-		searchBtn.sendKeys("anj");
+		searchBtn.sendKeys("shane");
 		Thread.sleep(1000);
-
+		commonUtils.waitForElement(driver, searchText, 2);
+		String searchtext = searchText.getText();
+		if (searchtext.equals("shane")) {
+			System.out.println("Details exist");
+		} else {
+			System.out.println("No such details exist");
+		}
 	}
 }

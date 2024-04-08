@@ -55,15 +55,15 @@ public class CommonUtils {
 		return driver;
 	}
 
-	public static void scrollDown(WebDriver driver) throws InterruptedException {
+	public static void scrollDown(WebDriver driver, int pixels) throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0, 300);");
+		js.executeScript("window.scrollBy(0, arguments[0]);", pixels);
 		Thread.sleep(1000);
 	}
 
-	public static void scrollUp(WebDriver driver) throws InterruptedException {
+	public static void scrollUp(WebDriver driver, int pixels) throws InterruptedException {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0, -400);");
+		js.executeScript("window.scrollBy(0, arguments[0]);", pixels);
 		Thread.sleep(1000);
 	}
 

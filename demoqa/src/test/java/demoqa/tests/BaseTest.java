@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import demoqa.commonutils.CommonUtils;
 import demoqa.pageobject.BasePage;
 import demoqa.pageobject.CheckBoxPage;
+import demoqa.pageobject.LinksPage;
 import demoqa.pageobject.WebTablesPage;
 
 public class BaseTest {
@@ -17,6 +18,7 @@ public class BaseTest {
 	protected CheckBoxPage checkBoxPage;
 	protected BasePage basePage;
 	protected WebTablesPage webTablesPage;
+	protected LinksPage linksPage;
 
 	@BeforeMethod
 	public void setUp() throws IOException {
@@ -24,6 +26,7 @@ public class BaseTest {
 		basePage = new BasePage(driver);
 		checkBoxPage = new CheckBoxPage(driver);
 		webTablesPage = new WebTablesPage(driver);
+		linksPage = new LinksPage(driver);
 		commonUtils.browserSetup(driver);
 	}
 
