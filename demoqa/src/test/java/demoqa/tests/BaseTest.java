@@ -33,6 +33,7 @@ public class BaseTest {
 	@AfterMethod
 	public void tearDown() {
 		basePage.closeBrowser();
+
 	}
 
 }

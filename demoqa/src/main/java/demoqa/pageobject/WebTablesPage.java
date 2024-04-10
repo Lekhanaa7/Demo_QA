@@ -1,5 +1,8 @@
 package demoqa.pageobject;
 
+import java.util.Random;
+
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -62,16 +65,19 @@ public class WebTablesPage extends BasePage {
 		commonUtils.waitForElement(driver, addBtn, 2);
 		addBtn.click();
 		commonUtils.waitForElement(driver, firstName, 2);
-		firstName.sendKeys("prove");
+		firstName.sendKeys("Lekhana");
+		String lastNameText = RandomStringUtils.randomAlphabetic(4);
 		commonUtils.waitForElement(driver, lastName, 2);
-		lastName.sendKeys("aksh");
+		lastName.sendKeys(lastNameText);
 		commonUtils.waitForElement(driver, userEmail, 2);
-		userEmail.sendKeys("123@email.com");
+		userEmail.sendKeys(lastNameText + "@email.com");
 		commonUtils.waitForElement(driver, ageInput, 2);
 		ageInput.sendKeys("30");
 		Thread.sleep(1000);
+		Random random = new Random();
+		int salaryValue = 10000 + random.nextInt(90000);
 		commonUtils.waitForElement(driver, salary, 2);
-		salary.sendKeys("30000");
+		salary.sendKeys(Integer.toString(salaryValue));
 		commonUtils.waitForElement(driver, department, 2);
 		department.sendKeys("railways");
 		Thread.sleep(2000);
@@ -81,11 +87,11 @@ public class WebTablesPage extends BasePage {
 		Thread.sleep(2000);
 		commonUtils.waitForElement(driver, searchBtn, 2);
 		searchBtn.click();
-		searchBtn.sendKeys("shane");
+		searchBtn.sendKeys("Lekhana");
 		Thread.sleep(1000);
 		commonUtils.waitForElement(driver, searchText, 2);
 		String searchtext = searchText.getText();
-		if (searchtext.equals("shane")) {
+		if (searchtext.equals("Lekhana")) {
 			System.out.println("Details exist");
 		} else {
 			System.out.println("No such details exist");
