@@ -95,40 +95,6 @@ public class LinksPage extends BasePage {
 
 	}
 
-	//	public void clickAllLinks() throws InterruptedException {
-	//		boolean succRun = false;
-	//		int count = 2;
-	//		try {
-	//			commonUtils.scrollDown(driver, 300);
-	//			commonUtils.waitForElement(driver, linksBtn, 2);
-	//			linksBtn.click();
-	//			Thread.sleep(500);
-	//			//commonUtils.scrollDown(driver, 560);
-	//			Thread.sleep(2000);
-	//			List<WebElement> links = Arrays.asList(createdBtn, noContentBtn, movedBtn, badRequestBtn, unauthorizedtBtn,
-	//					forbiddenBtn, notFoundBtn);
-	//
-	//			for (WebElement link : links) {
-	//				link.click();
-	//				Thread.sleep(5000);
-	//				succRun = true;
-	//				System.out.println(linkResponseMsg.getText());
-	//			}
-	//		} catch (Exception e) {
-	//			if (!succRun) {
-	//				System.out.println("Exception found.");
-	//				System.out.println("The exception is: ");
-	//				e.printStackTrace();
-	//				while (count != 0) {
-	//					clickAllLinks();
-	//					count--;
-	//				}
-	//				count = 2;
-	//				System.out.println("Exception found, so executed " + count + " number of times.");
-	//			}
-	//		}
-	//	}
-	//}
 	public void clickAllLinks() throws InterruptedException {
 		commonUtils.scrollDown(driver, 300);
 		commonUtils.waitForElement(driver, linksBtn, 2);
