@@ -6,7 +6,6 @@
       <class name="demoqa.tests.LinksTest">
         <methods>
           <include name="testAPILinks"/>
-          <include name="testHomeLinks"/>
           <include name="setUp"/>
           <include name="tearDown"/>
         </methods>

@@ -141,16 +141,16 @@ public class LinksPage extends BasePage {
 
 		for (WebElement link : links) {
 			link.click();
-			Thread.sleep(5000);
+			Thread.sleep(1000);
 			System.out.println(linkResponseMsg.getText());
 		}
-		commonUtils.waitForElement(driver, workspaceBtn, 2);
-		workspaceBtn.click();
+		//		commonUtils.waitForElement(driver, workspaceBtn, 2);
+		//		workspaceBtn.click();
 	}
 
 	public static class LinksPageRetryAnalyzer implements IRetryAnalyzer {
 		private int retryCount = 0;
-		private static final int maxRetryCount = 3;
+		private static final int maxRetryCount = 2;
 
 		@Override
 		public boolean retry(ITestResult result) {

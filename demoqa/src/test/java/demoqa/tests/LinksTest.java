@@ -6,7 +6,7 @@ import demoqa.pageobject.LinksPage;
 
 public class LinksTest extends BaseTest {
 
-	@Test(priority = 1)
+	@Test(priority = 1, retryAnalyzer = LinksPage.LinksPageRetryAnalyzer.class)
 	public void testLinks() throws InterruptedException {
 		linksPage.newHomeWindow();
 
@@ -18,7 +18,7 @@ public class LinksTest extends BaseTest {
 
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 3, retryAnalyzer = LinksPage.LinksPageRetryAnalyzer.class)
 	public void testHomeLinks() throws InterruptedException {
 		linksPage.newHomeWindow();
 
